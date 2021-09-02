@@ -1,0 +1,8 @@
+[package]
+authors = ["Brenden Matthews <brenden@brndn.io>"]
+edition = "2018"
+name = "zlib-wrapper"
+version = "0.1.0"
+
+[dependencies]
+libc = "0.2.88"

@@ -1,0 +1,12 @@
+[package]
+edition = "2021"
+name = "wrapping-adder"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+num-traits = "0.2"
+
+[dev-dependencies]
+proptest = "1.0.0"

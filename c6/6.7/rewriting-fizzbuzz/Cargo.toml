@@ -1,0 +1,11 @@
+[package]
+edition = "2021"
+name = "rewriting-fizzbuzz"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[dev-dependencies]
+proptest = "1.0.0"

@@ -4,10 +4,10 @@
 //!
 //! # Example
 //!
-//! ```
+//! ----
 //! use rustdoc_example::mult;
 //! assert_eq!(mult(10, 10), 100);
-//! ```
+//! ----
 
 #![warn(missing_docs)]
 

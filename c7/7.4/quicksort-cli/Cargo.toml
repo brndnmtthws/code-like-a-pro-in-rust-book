@@ -1,0 +1,13 @@
+[package]
+edition = "2021"
+name = "quicksort-cli"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+quicksort-proptest = {version = "0.1", path = "../quicksort-proptest"}
+
+[dev-dependencies]
+assert_cmd = "2.0.0"
+assert_fs = "1.0.0"

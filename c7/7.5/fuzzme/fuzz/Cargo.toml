@@ -1,0 +1,26 @@
+[package]
+authors = ["Automatically generated"]
+edition = "2018"
+name = "fuzzme-fuzz"
+publish = false
+version = "0.0.0"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+arbitrary = {version = "1", features = ["derive"]}
+libfuzzer-sys = "0.4"
+
+[dependencies.fuzzme]
+path = ".."
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[[bin]]
+doc = false
+name = "fuzz_target_1"
+path = "fuzz_targets/fuzz_target_1.rs"
+test = false

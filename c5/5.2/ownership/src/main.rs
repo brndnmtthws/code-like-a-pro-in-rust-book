@@ -1,7 +1,9 @@
 fn main() {
-    let mut top_grossing_films = vec!["Avatar", "Avengers: Endgame", "Titanic"];
+    let mut top_grossing_films =
+        vec!["Avatar", "Avengers: Endgame", "Titanic"];
     let top_grossing_films_mutable_reference = &mut top_grossing_films;
-    top_grossing_films_mutable_reference.push("Star Wars: The Force Awakens");
+    top_grossing_films_mutable_reference
+        .push("Star Wars: The Force Awakens");
     let top_grossing_films_reference = &top_grossing_films;
     println!(
         "Printed using immutable reference: {:#?}",

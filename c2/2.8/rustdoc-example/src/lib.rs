@@ -1,6 +1,7 @@
 //! # rustdoc-example
 //!
-//! A simple project demonstrating the use of rustdoc with the function [`mult`].
+//! A simple project demonstrating the use of rustdoc with the function
+//! [`mult`].
 //!
 //! # Example
 //!

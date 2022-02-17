@@ -55,7 +55,13 @@ fn mprotect_noaccess(data: &[u8]) -> Result<(), std::io::Error> {
     #[cfg(unix)]
     {
         use libc::{c_void, mprotect as c_mprotect, PROT_NONE};
-        let ret = unsafe { c_mprotect(data.as_ptr() as *mut c_void, data.len() - 1, PROT_NONE) };
+        let ret = unsafe {
+            c_mprotect(
+                data.as_ptr() as *mut c_void,
+                data.len() - 1,
+                PROT_NONE,
+            )
+        };
         match ret {
             0 => Ok(()),
             _ => Err(std::io::Error::last_os_error()),
@@ -84,9 +90,9 @@ fn mprotect_noaccess(data: &[u8]) -> Result<(), std::io::Error> {
     }
 }
 
-/// Custom page-aligned allocator implementation. Creates blocks of page-aligned
-/// heap-allocated memory regions, with a no-access pages before and after the
-/// allocated region of memory.
+/// Custom page-aligned allocator implementation. Creates blocks of
+/// page-aligned heap-allocated memory regions, with a no-access pages
+/// before and after the allocated region of memory.
 pub struct PageAlignedAllocator;
 
 lazy_static! {
@@ -111,7 +117,10 @@ fn _page_round(size: usize, pagesize: usize) -> usize {
 }
 
 unsafe impl Allocator for PageAlignedAllocator {
-    fn allocate(&self, layout: Layout) -> Result<ptr::NonNull<[u8]>, AllocError> {
+    fn allocate(
+        &self,
+        layout: Layout,
+    ) -> Result<ptr::NonNull<[u8]>, AllocError> {
         let pagesize = *PAGESIZE;
         let size = _page_round(layout.size(), pagesize) + 2 * pagesize;
         #[cfg(unix)]
@@ -119,9 +128,12 @@ unsafe impl Allocator for PageAlignedAllocator {
             use libc::posix_memalign;
             let mut out = ptr::null_mut();
 
-            // allocate full pages, in addition to an extra page at the start and
-            // end which will remain locked with no access permitted.
-            let ret = unsafe { posix_memalign(&mut out, pagesize as usize, size) };
+            // allocate full pages, in addition to an extra page at the
+            // start and end which will remain locked with no
+            // access permitted.
+            let ret = unsafe {
+                posix_memalign(&mut out, pagesize as usize, size)
+            };
             if ret != 0 {
                 return Err(AllocError);
             }
@@ -131,7 +143,9 @@ unsafe impl Allocator for PageAlignedAllocator {
         #[cfg(windows)]
         let out = {
             use winapi::um::memoryapi::VirtualAlloc;
-            use winapi::um::winnt::{MEM_COMMIT, MEM_RESERVE, PAGE_READWRITE};
+            use winapi::um::winnt::{
+                MEM_COMMIT, MEM_RESERVE, PAGE_READWRITE,
+            };
             unsafe {
                 VirtualAlloc(
                     ptr::null_mut(),
@@ -143,14 +157,18 @@ unsafe impl Allocator for PageAlignedAllocator {
         };
 
         // lock the pages at the fore of the region
-        let fore_protected_region =
-            unsafe { std::slice::from_raw_parts_mut(out as *mut u8, pagesize) };
+        let fore_protected_region = unsafe {
+            std::slice::from_raw_parts_mut(out as *mut u8, pagesize)
+        };
         mprotect_noaccess(fore_protected_region)
-            .map_err(|err| eprintln!("mprotect error = {:?}, in allocator", err))
+            .map_err(|err| {
+                eprintln!("mprotect error = {:?}, in allocator", err)
+            })
             .ok();
 
         // lock the pages at the aft of the region
-        let aft_protected_region_offset = pagesize + _page_round(layout.size(), pagesize);
+        let aft_protected_region_offset =
+            pagesize + _page_round(layout.size(), pagesize);
         let aft_protected_region = unsafe {
             std::slice::from_raw_parts_mut(
                 out.add(aft_protected_region_offset) as *mut u8,
@@ -158,14 +176,22 @@ unsafe impl Allocator for PageAlignedAllocator {
             )
         };
         mprotect_noaccess(aft_protected_region)
-            .map_err(|err| eprintln!("mprotect error = {:?}, in allocator", err))
+            .map_err(|err| {
+                eprintln!("mprotect error = {:?}, in allocator", err)
+            })
             .ok();
 
-        let slice =
-            unsafe { std::slice::from_raw_parts_mut(out.add(pagesize) as *mut u8, layout.size()) };
+        let slice = unsafe {
+            std::slice::from_raw_parts_mut(
+                out.add(pagesize) as *mut u8,
+                layout.size(),
+            )
+        };
 
         mprotect_readwrite(slice)
-            .map_err(|err| eprintln!("mprotect error = {:?}, in allocator", err))
+            .map_err(|err| {
+                eprintln!("mprotect error = {:?}, in allocator", err)
+            })
             .ok();
 
         unsafe { Ok(ptr::NonNull::new_unchecked(slice)) }
@@ -177,13 +203,15 @@ unsafe impl Allocator for PageAlignedAllocator {
         let ptr = ptr.as_ptr().offset(-(pagesize as isize));
 
         // unlock the fore protected region
-        let fore_protected_region = std::slice::from_raw_parts_mut(ptr as *mut u8, pagesize);
+        let fore_protected_region =
+            std::slice::from_raw_parts_mut(ptr as *mut u8, pagesize);
         mprotect_readwrite(fore_protected_region)
             .map_err(|err| eprintln!("mprotect error = {:?}", err))
             .ok();
 
         // unlock the aft protected region
-        let aft_protected_region_offset = pagesize + _page_round(layout.size(), pagesize);
+        let aft_protected_region_offset =
+            pagesize + _page_round(layout.size(), pagesize);
         let aft_protected_region = std::slice::from_raw_parts_mut(
             ptr.add(aft_protected_region_offset) as *mut u8,
             pagesize,
@@ -208,7 +236,8 @@ unsafe impl Allocator for PageAlignedAllocator {
 }
 
 fn main() {
-    let mut custom_alloc_vec: Vec<i32, _> = Vec::with_capacity_in(10, PageAlignedAllocator);
+    let mut custom_alloc_vec: Vec<i32, _> =
+        Vec::with_capacity_in(10, PageAlignedAllocator);
     for i in 0..10 {
         custom_alloc_vec.push(i as i32 + 1);
     }

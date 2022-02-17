@@ -6,7 +6,10 @@ use std::ptr::NonNull;
 pub struct PassThruAllocator;
 
 unsafe impl Allocator for PassThruAllocator {
-    fn allocate(&self, layout: Layout) -> Result<NonNull<[u8]>, AllocError> {
+    fn allocate(
+        &self,
+        layout: Layout,
+    ) -> Result<NonNull<[u8]>, AllocError> {
         Global.allocate(layout)
     }
     unsafe fn deallocate(&self, ptr: NonNull<u8>, layout: Layout) {
@@ -15,7 +18,8 @@ unsafe impl Allocator for PassThruAllocator {
 }
 
 fn main() {
-    let mut custom_alloc_vec: Vec<i32, _> = Vec::with_capacity_in(10, PassThruAllocator);
+    let mut custom_alloc_vec: Vec<i32, _> =
+        Vec::with_capacity_in(10, PassThruAllocator);
     for i in 0..10 {
         custom_alloc_vec.push(i as i32 + 1);
     }

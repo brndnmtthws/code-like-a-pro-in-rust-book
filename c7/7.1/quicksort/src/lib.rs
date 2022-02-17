@@ -7,7 +7,9 @@ pub fn quicksort<T: std::cmp::PartialOrd + Clone>(slice: &mut [T]) {
     quicksort(right);
 }
 
-fn partition<T: std::cmp::PartialOrd + Clone>(slice: &mut [T]) -> (&mut [T], &mut [T]) {
+fn partition<T: std::cmp::PartialOrd + Clone>(
+    slice: &mut [T],
+) -> (&mut [T], &mut [T]) {
     let pivot_value = slice[slice.len() - 1].clone();
     let mut pivot_index = 0;
     for i in 0..slice.len() {

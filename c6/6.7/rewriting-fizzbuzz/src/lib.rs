@@ -25,7 +25,9 @@ fn better_fizzbuzz(n: i32) -> Vec<String> {
     for i in 0..n {
         for key in keys.iter() {
             if (i + 1) % *key == 0 {
-                result[i as usize].push_str(mappings.get(key).expect("couldn't fetch mapping"));
+                result[i as usize].push_str(
+                    mappings.get(key).expect("couldn't fetch mapping"),
+                );
             }
         }
         if result[i as usize].is_empty() {
@@ -47,8 +49,8 @@ mod tests {
         assert_eq!(
             fizzbuzz(15),
             vec![
-                "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz",
-                "13", "14", "FizzBuzz"
+                "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz",
+                "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"
             ]
         )
     }
@@ -59,8 +61,8 @@ mod tests {
         assert_eq!(
             better_fizzbuzz(15),
             vec![
-                "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz",
-                "13", "14", "FizzBuzz"
+                "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz",
+                "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"
             ]
         )
     }

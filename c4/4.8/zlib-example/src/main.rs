@@ -26,11 +26,19 @@ fn read_gz_file(name: &str) -> String {
         let c_mode = CString::new("r").expect("CString failed");
         let file = gzopen(c_name.as_ptr(), c_mode.as_ptr());
         if file.is_null() {
-            panic!("Couldn't read file: {}", std::io::Error::last_os_error());
+            panic!(
+                "Couldn't read file: {}",
+                std::io::Error::last_os_error()
+            );
         }
         while gzeof(file) == 0 {
-            let bytes_read = gzread(file, buffer.as_mut_ptr(), (buffer.len() - 1) as c_uint);
-            let s = std::str::from_utf8(&buffer[..(bytes_read as usize)]).unwrap();
+            let bytes_read = gzread(
+                file,
+                buffer.as_mut_ptr(),
+                (buffer.len() - 1) as c_uint,
+            );
+            let s = std::str::from_utf8(&buffer[..(bytes_read as usize)])
+                .unwrap();
             contents.push_str(s);
         }
         gzclose(file);

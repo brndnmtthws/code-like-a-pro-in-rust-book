@@ -1,21 +1,21 @@
-pub trait Description {
+pub trait SelfDescribing {
     fn describe() -> String;
 }
 
-fn describe_type<T: Description>() -> String {
+fn describe_type<T: SelfDescribing>() -> String {
     T::describe()
 }
 
 struct Dog();
 struct Cat();
 
-impl Description for Dog {
+impl SelfDescribing for Dog {
     fn describe() -> String {
         "happy little dog".into()
     }
 }
 
-impl Description for Cat {
+impl SelfDescribing for Cat {
     fn describe() -> String {
         "curious cat".into()
     }

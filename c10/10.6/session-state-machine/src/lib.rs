@@ -12,13 +12,13 @@ pub struct Session<State: SessionState = Initial> {
 }
 
 #[derive(Debug, Default)]
-pub struct Initial {}
+pub struct Initial;
 #[derive(Debug, Default)]
-pub struct Anonymous {}
+pub struct Anonymous;
 #[derive(Debug, Default)]
-pub struct Authenticated {}
+pub struct Authenticated;
 #[derive(Debug, Default)]
-pub struct LoggedOut {}
+pub struct LoggedOut;
 
 impl SessionState for Initial {}
 impl SessionState for Anonymous {}

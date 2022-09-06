@@ -8,9 +8,9 @@ struct LightBulb<State: BulbState> {
 }
 
 #[derive(Debug, Default)]
-struct On {}
+struct On;
 #[derive(Debug, Default)]
-struct Off {}
+struct Off;
 
 impl BulbState for On {}
 impl BulbState for Off {}

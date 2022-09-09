@@ -1,5 +1,5 @@
 [package]
-name = "fire-and-forget"
+name = "mixed-file-io"
 version = "0.1.0"
 edition = "2021"
 

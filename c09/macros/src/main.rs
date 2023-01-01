@@ -21,13 +21,13 @@ macro_rules! print_what_it_is {
 
 macro_rules! special_println {
     ($($arg:tt)*) => {
-        println!("Printed specially: {}", $($arg)*)
+        println!("Printed specially: {}", format!($($arg)*))
     };
 }
 
 macro_rules! var_print {
     ($($v:ident),*) => {
-        println!(concat!($(concat!(stringify!($v),"={:?} ")),*), $($v),*)
+        println!(concat!($(stringify!($v),"={:?} "),*), $($v),*)
     };
 }
 
@@ -83,6 +83,8 @@ fn main() {
     // trace_macros!(true);
     special_println!("hello world!");
     // trace_macros!(false);
+
+    special_println!("with an argument of {}", 5);
 
     let counter = 7;
     let gauge = 3.14;

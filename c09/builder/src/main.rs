@@ -3,7 +3,7 @@ pub trait Buildable<Target, B: Builder<Target>> {
 }
 
 #[derive(Debug)]
-struct Bicycle {
+pub struct Bicycle {
     make: String,
     model: String,
     size: i32,
@@ -41,7 +41,7 @@ pub trait Builder<T> {
     fn build(self) -> T;
 }
 
-struct BicycleBuilder {
+pub struct BicycleBuilder {
     bicycle: Bicycle,
 }
 

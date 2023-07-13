@@ -95,7 +95,6 @@ This repository contains the source code for [_Code Like a Pro in Rust_](https:/
 #### 5.6
 
 * [doublylinkedlist](c05/doublylinkedlist/)
-* [singlylinkedlist-refcell](c05/singlylinkedlist-refcell/)
 
 #### 5.7
 

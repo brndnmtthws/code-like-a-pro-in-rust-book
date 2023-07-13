@@ -8,3 +8,9 @@ edition = "2018"
 
 [dependencies]
 subproject = { path = "./subproject" }
+
+[workspace]
+
+members = [
+    "subproject",
+]

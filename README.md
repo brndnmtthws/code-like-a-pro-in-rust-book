@@ -8,181 +8,181 @@ This repository contains the source code for [_Code Like a Pro in Rust_](https:/
 
 #### 2.2
 
-* [simple-project](c2/simple-project/)
+* [simple-project](c02/simple-project/)
 
 #### 2.3
 
-* [patch-num-cpus](c2/patch-num-cpus/)
+* [patch-num-cpus](c02/patch-num-cpus/)
 
 #### 2.6
 
-* [zlib-wrapper](c2/zlib-wrapper/)
+* [zlib-wrapper](c02/zlib-wrapper/)
 
 #### 2.8
 
-* [rustdoc-example](c2/rustdoc-example/)
+* [rustdoc-example](c02/rustdoc-example/)
 
 #### 2.9
 
-* [modules](c2/modules/)
+* [modules](c02/modules/)
 
 #### 2.10
 
-* [workspaces-example](c2/workspaces-example/)
+* [workspaces-example](c02/workspaces-example/)
   
 #### 2.11
 
-* [build-script-example](c2/build-script-example/)
+* [build-script-example](c02/build-script-example/)
 
 ### Chapter 4
 
 #### 4.1
 
-* [movable-or-not](c4/movable-or-not/)
+* [movable-or-not](c04/movable-or-not/)
 
 #### 4.2
 
-* [slices-and-arrays](c4/slices-and-arrays/)
+* [slices-and-arrays](c04/slices-and-arrays/)
 
 #### 4.3
 
-* [borrowed-vec](c4/borrowed-vec/)
+* [borrowed-vec](c04/borrowed-vec/)
 
 #### 4.4
 
-* [compound-key](c4/compound-key/)
-* [custom-hash-function](c4/custom-hash-function/)
+* [compound-key](c04/compound-key/)
+* [custom-hash-function](c04/custom-hash-function/)
 
 #### 4.5
 
-* [enums](c4/enums/)
-* [integer-types](c4/integer-types/)
-* [tuple-basics](c4/tuple-basics/)
-* [unchecked-arithmetic](c4/unchecked-arithmetic/)
-* [wrapping-arithmetic](c4/wrapping-arithmetic/)
+* [enums](c04/enums/)
+* [integer-types](c04/integer-types/)
+* [tuple-basics](c04/tuple-basics/)
+* [unchecked-arithmetic](c04/unchecked-arithmetic/)
+* [wrapping-arithmetic](c04/wrapping-arithmetic/)
 
 #### 4.6
 
-* [error-handling](c4/error-handling/)
+* [error-handling](c04/error-handling/)
 
 #### 4.7
 
-* [error-conversion](c4/error-conversion/)
-* [string-wrapper](c4/string-wrapper/)
+* [error-conversion](c04/error-conversion/)
+* [string-wrapper](c04/string-wrapper/)
 
 #### 4.8
 
-* [zlib-example](c4/zlib-example/)
+* [zlib-example](c04/zlib-example/)
 
 ### Chapter 5
 
 #### 5.2
 
-* [ownership](c5/ownership/)
+* [ownership](c05/ownership/)
 
 #### 5.3
 
-* [shallow-and-deep-copies](c5/shallow-and-deep-copies/)
+* [shallow-and-deep-copies](c05/shallow-and-deep-copies/)
 
 #### 5.4
 
-* [copies](c5/copies/)
+* [copies](c05/copies/)
 
 #### 5.5
 
-* [singlylinkedlist](c5/singlylinkedlist/)
+* [singlylinkedlist](c05/singlylinkedlist/)
 
 #### 5.6
 
-* [doublylinkedlist](c5/doublylinkedlist/)
-* [singlylinkedlist-refcell](c5/singlylinkedlist-refcell/)
+* [doublylinkedlist](c05/doublylinkedlist/)
+* [singlylinkedlist-refcell](c05/singlylinkedlist-refcell/)
 
 #### 5.7
 
-* [singlylinkedlist-immutable](c5/singlylinkedlist-immutable/)
+* [singlylinkedlist-immutable](c05/singlylinkedlist-immutable/)
 
 #### 5.8
 
-* [basicallocator](c5/basicallocator/)
-* [cfg-attributes](c5/cfg-attributes/)
-* [pagealignedallocator](c5/pagealignedallocator/)
-* [passthruallocator](c5/passthruallocator/)
+* [basicallocator](c05/basicallocator/)
+* [cfg-attributes](c05/cfg-attributes/)
+* [pagealignedallocator](c05/pagealignedallocator/)
+* [passthruallocator](c05/passthruallocator/)
 
 ### Chapter 6
 
 #### 6.2
 
-* [unit-tests](c6/unit-tests/)
+* [unit-tests](c06/unit-tests/)
 
 #### 6.3
 
-* [proptest](c6/proptest)
-* [wrapping-adder](c6/wrapping-adder/)
+* [proptest](c06/proptest)
+* [wrapping-adder](c06/wrapping-adder/)
 
 #### 6.5
 
-* [global-state](c6/global-state/)
-* [mutex-guard](c6/mutex-guard/)
+* [global-state](c06/global-state/)
+* [mutex-guard](c06/mutex-guard/)
 
 #### 6.7
 
-* [rewriting-fizzbuzz](c6/rewriting-fizzbuzz/)
+* [rewriting-fizzbuzz](c06/rewriting-fizzbuzz/)
 
 #### 6.8
 
-* [tarpaulin-report.html](c6/tarpaulin-report.html)
+* [tarpaulin-report.html](c06/tarpaulin-report.html)
 
 ### Chapter 7
 
 #### 7.1
 
-* [quicksort](c7/quicksort/)
+* [quicksort](c07/quicksort/)
 
 #### 7.2
 
-* [quicksort-trait](c7/quicksort-trait/)
+* [quicksort-trait](c07/quicksort-trait/)
 
 #### 7.4
 
-* [quicksort-cli](c7/quicksort-cli/)
-* [quicksort-proptest](c7/quicksort-proptest/)
+* [quicksort-cli](c07/quicksort-cli/)
+* [quicksort-proptest](c07/quicksort-proptest/)
 
 #### 7.5
 
-* [fuzzme](c7/fuzzme/)
+* [fuzzme](c07/fuzzme/)
 
 ### Chapter 8
 
 #### 8.3
 
-* [async-sleep](c8/async-sleep/)
-* [sync-sleep](c8/sync-sleep/)
+* [async-sleep](c08/async-sleep/)
+* [sync-sleep](c08/sync-sleep/)
 
 #### 8.4
 
-* [fire-and-forget](c8/fire-and-forget/)
-* [outside-async-context](c8/outside-async-context/)
-* [wait-future-without-await](c8/wait-future-without-await/)
+* [fire-and-forget](c08/fire-and-forget/)
+* [outside-async-context](c08/outside-async-context/)
+* [wait-future-without-await](c08/wait-future-without-await/)
 
 #### 8.5
 
-* [parallelism](c8/parallelism/)
+* [parallelism](c08/parallelism/)
 
 #### 8.6
 
-* [async-observer](c8/async-observer/)
+* [async-observer](c08/async-observer/)
 
 #### 8.7
 
-* [mixed-file-io](c8/mixed-file-io/)
+* [mixed-file-io](c08/mixed-file-io/)
 
 #### 8.9
 
-* [tracing](c8/tracing/)
+* [tracing](c08/tracing/)
 
 #### 8.10
 
-* [async-tests](c8/async-tests/)
+* [async-tests](c08/async-tests/)
 
 ### Chapter 9
 
@@ -196,7 +196,7 @@ This repository contains the source code for [_Code Like a Pro in Rust_](https:/
 
 #### 11.2
 
-* [vectors](c8/vectors/)
+* [vectors](c08/vectors/)
 
 #### 11.3
 

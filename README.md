@@ -195,12 +195,12 @@ This repository contains the source code for [_Code Like a Pro in Rust_](https:/
 
 #### 11.2
 
-* [vectors](c08/vectors/)
+* [vectors](c11/vectors/)
 
 #### 11.3
 
-* [simd](c12/simd/)
+* [simd](c11/simd/)
 
 #### 12.4
 
-* [parallelization-with-rayon](c12/parallelization-with-rayon/)
+* [parallelization-with-rayon](c11/parallelization-with-rayon/)

@@ -10,7 +10,4 @@ edition = "2018"
 subproject = { path = "./subproject" }
 
 [workspace]
-
-members = [
-    "subproject",
-]
+members = ["subproject"]

@@ -1,6 +1,9 @@
 use clap::{Parser, Subcommand};
 use colored_json::prelude::*;
-use hyper::{body::HttpBody as _, header::CONTENT_TYPE, Body, Client, Method, Request, Uri};
+use hyper::{
+    body::HttpBody as _, header::CONTENT_TYPE, Body, Client, Method,
+    Request, Uri,
+};
 use serde_json::json;
 use yansi::Paint;
 
@@ -58,7 +61,10 @@ async fn request(
                 .uri(url)
                 .method(method)
                 .header("Content-Type", "application/json")
-                .body(body.map(|s| Body::from(s)).unwrap_or_else(|| Body::empty()))?,
+                .body(
+                    body.map(|s| Body::from(s))
+                        .unwrap_or_else(|| Body::empty()),
+                )?,
         )
         .await?;
 
@@ -144,7 +150,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
                     .path_and_query(format!("/v1/todos/{}", id))
                     .build()?,
                 Method::PUT,
-                Some(json!({"body":body,"completed":completed}).to_string()),
+                Some(
+                    json!({"body":body,"completed":completed}).to_string(),
+                ),
             )
             .await
         }

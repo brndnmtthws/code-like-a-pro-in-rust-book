@@ -43,14 +43,15 @@ impl Todo {
         updated_todo: UpdateTodo,
     ) -> Result<Todo, Error> {
         query_as(
-            "update todos set body = ?, completed = ?, updated_at = datetime('now') where id = ? returning *",
+            "update todos set body = ?, completed = ?, \
+                updated_at = datetime('now') where id = ? returning *",
         )
         .bind(updated_todo.body())
         .bind(updated_todo.completed())
         .bind(id)
         .fetch_one(&dbpool)
         .await
-            .map_err(Into::into)
+        .map_err(Into::into)
     }
     pub async fn delete(dbpool: SqlitePool, id: i64) -> Result<(), Error> {
         query("delete from todos where id = ?")

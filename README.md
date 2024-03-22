@@ -2,7 +2,7 @@
 
 This repository contains the source code for [_Code Like a Pro in Rust_](https://www.manning.com/books/code-like-a-pro-in-rust).
 
-[![DOTD_NewMEAP_Matthews](https://user-images.githubusercontent.com/3129093/135321233-bb6ebafb-0fea-4689-9aa2-f539f06eda79.png)](http://mng.bz/69Dp)
+[<img src="https://github.com/brndnmtthws/code-like-a-pro-in-rust-book/assets/3129093/234328e1-0957-42f1-9238-b37798a821d8" width="500" />](https://www.manning.com/books/code-like-a-pro-in-rust)
 
 ## Table of contents
 

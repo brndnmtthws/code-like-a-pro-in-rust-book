@@ -203,6 +203,6 @@ This repository contains the source code for [_Code Like a Pro in Rust_](https:/
 
 * [simd](c11/simd/)
 
-#### 12.4
+#### 11.4
 
 * [parallelization-with-rayon](c11/parallelization-with-rayon/)

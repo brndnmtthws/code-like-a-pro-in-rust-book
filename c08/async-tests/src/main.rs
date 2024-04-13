@@ -1,5 +1,4 @@
 use tokio::time::{sleep, Duration};
-
 async fn sleep_1s() {
     sleep(Duration::from_secs(1)).await;
 }
@@ -11,6 +10,7 @@ async fn main() {
 
 mod tests {
     use super::*;
+    use tokio::time::Instant;
 
     #[tokio::test]
     async fn sleep_test() {

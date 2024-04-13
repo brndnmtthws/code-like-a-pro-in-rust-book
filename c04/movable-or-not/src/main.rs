@@ -11,5 +11,5 @@ fn main() {
     print_String(String::from("String"));
     print_str(&String::from("String"));
     print_str("str");
-    print_String("str");
+    // print_String("str"); error! does not compile
 }

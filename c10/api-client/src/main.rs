@@ -61,10 +61,7 @@ async fn request(
                 .uri(url)
                 .method(method)
                 .header("Content-Type", "application/json")
-                .body(
-                    body.map(|s| Body::from(s))
-                        .unwrap_or_else(|| Body::empty()),
-                )?,
+                .body(body.map(Body::from).unwrap_or_else(Body::empty))?,
         )
         .await?;
 

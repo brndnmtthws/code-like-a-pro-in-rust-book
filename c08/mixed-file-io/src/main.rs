@@ -2,7 +2,7 @@ use tokio::io::{self, AsyncWriteExt};
 
 async fn write_file(filename: &str) -> io::Result<()> {
     let mut f = tokio::fs::File::create(filename).await?;
-    f.write(b"Hello, file!").await?;
+    f.write_all(b"Hello, file!").await?;
     f.flush().await?;
 
     Ok(())

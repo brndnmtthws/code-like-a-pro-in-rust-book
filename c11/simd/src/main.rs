@@ -1,4 +1,4 @@
-#![feature(portable_simd, array_zip)]
+#![feature(portable_simd)]
 
 fn initialize() -> ([u64; 64], [u64; 64]) {
     let mut a = [0u64; 64];
@@ -19,10 +19,24 @@ fn main() {
     // perform some calculations using normal math
     let now = Instant::now();
     for _ in 0..100_000 {
-        let c = a.zip(b).map(|(l, r)| l * r);
-        let d = a.zip(c).map(|(l, r)| l + r);
-        let e = c.zip(d).map(|(l, r)| l * r);
-        a = e.zip(d).map(|(l, r)| l ^ r);
+        let c: Vec<_> = a
+            .iter()
+            .zip(b.iter())
+            .map(|(l, r)| l.wrapping_mul(*r))
+            .collect();
+        let d: Vec<_> = a
+            .iter()
+            .zip(c.iter())
+            .map(|(l, r)| l.wrapping_add(*r))
+            .collect();
+        let e: Vec<_> = c
+            .iter()
+            .zip(d.iter())
+            .map(|(l, r)| l.wrapping_mul(*r))
+            .collect();
+        e.iter().zip(d).enumerate().for_each(|(idx, (l, r))| {
+            a[idx] = l ^ r;
+        });
     }
     println!("Without SIMD took {}s", now.elapsed().as_secs_f32());
 

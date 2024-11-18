@@ -206,3 +206,7 @@ This repository contains the source code for [_Code Like a Pro in Rust_](https:/
 #### 11.4
 
 * [parallelization-with-rayon](c11/parallelization-with-rayon/)
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/brndnmtthws/code-like-a-pro-in-rust-book.svg)](https://starchart.cc/brndnmtthws/code-like-a-pro-in-rust-book)

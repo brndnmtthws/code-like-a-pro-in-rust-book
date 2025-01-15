@@ -16,7 +16,7 @@ pub async fn create_router(
             Router::new()
                 .route("/todos", get(todo_list).post(todo_create))
                 .route(
-                    "/todos/:id",
+                    "/todos/{id}",
                     get(todo_read).put(todo_update).delete(todo_delete),
                 ),
         )

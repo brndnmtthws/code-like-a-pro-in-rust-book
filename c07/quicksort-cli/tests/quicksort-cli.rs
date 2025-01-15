@@ -11,7 +11,7 @@ fn test_no_args() -> Result<(), Box<dyn std::error::Error>> {
 #[test]
 fn test_cli_well_known() -> Result<(), Box<dyn std::error::Error>> {
     let mut cmd = Command::cargo_bin("quicksort-cli")?;
-    cmd.args(&["14", "52", "1", "-195", "1582"])
+    cmd.args(["14", "52", "1", "-195", "1582"])
         .assert()
         .success()
         .stdout("[-195, 1, 14, 52, 1582]\n");

@@ -30,7 +30,7 @@ where
     }
     fn next(&self) -> Option<&Self> {
         if let Some(next) = &self.next {
-            Some(&*next)
+            Some(next)
         } else {
             None
         }
@@ -47,7 +47,7 @@ where
     }
 }
 
-impl<'a, T> SinglyLinkedList<'a, T>
+impl<T> SinglyLinkedList<'_, T>
 where
     T: Clone,
 {
@@ -58,7 +58,7 @@ where
     }
     fn append(&self, data: T) -> Self {
         let mut new_list = self.clone();
-        let mut tail = new_list.head.to_mut().mut_tail();
+        let tail = new_list.head.to_mut().mut_tail();
         tail.next = Some(Box::new(ListItem::new(data)));
         new_list
     }
@@ -81,7 +81,7 @@ where
             break;
         }
     }
-    println!("");
+    println!();
 }
 
 fn main() {

@@ -57,10 +57,8 @@ async fn main() {
     let bind_addr = std::env::var("BIND_ADDR")
         .unwrap_or_else(|_| "127.0.0.1:3000".to_string());
 
-    axum::Server::bind(
-        &bind_addr.parse().expect("unable to parse socket address"),
-    )
-    .serve(router.into_make_service())
-    .await
-    .expect("unable to start server")
+    let listener = tokio::net::TcpListener::bind(bind_addr)
+        .await
+        .expect("couldn't bind to address");
+    axum::serve(listener, router).await.expect("server failed");
 }

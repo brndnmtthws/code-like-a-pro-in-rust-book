@@ -30,7 +30,7 @@ fn main() {
     let mut custom_alloc_vec: Vec<i32, _> =
         Vec::with_capacity_in(10, BasicAllocator);
     for i in 0..10 {
-        custom_alloc_vec.push(i as i32 + 1);
+        custom_alloc_vec.push(i + 1);
     }
     println!("custom_alloc_vec={:?}", custom_alloc_vec);
 }

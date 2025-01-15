@@ -9,8 +9,6 @@ async fn main() {
 }
 
 mod tests {
-    use super::*;
-    use tokio::time::Instant;
 
     #[tokio::test]
     async fn sleep_test() {

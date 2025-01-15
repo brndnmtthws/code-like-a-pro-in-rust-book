@@ -72,7 +72,7 @@ fn main() {
         }
     }
 
-    println!("");
+    println!();
     println!("Print backards:");
     let mut item = list.tail();
     loop {

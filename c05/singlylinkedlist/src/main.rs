@@ -40,7 +40,7 @@ impl<T> SinglyLinkedList<T> {
         }
     }
     fn append(&mut self, data: T) {
-        let mut tail = self.head.mut_tail();
+        let tail = self.head.mut_tail();
         tail.next = Some(Box::new(ListItem::new(data)));
     }
     fn head(&self) -> &ListItem<T> {

@@ -8,7 +8,9 @@ async fn main() {
     sleep_1s().await;
 }
 
+#[cfg(test)]
 mod tests {
+    use tokio::time::{sleep, Duration, Instant};
 
     #[tokio::test]
     async fn sleep_test() {
